@@ -7,9 +7,9 @@
     ansible_python_interpreter: /usr/bin/python3.9
 
   tasks:
-    - name: Get the VirtualMachineSnapshot
+    - name: Get the VirtualMachineRestore
       kubernetes.core.k8s_info:
-        kind: VirtualMachineSnapshot
+        kind: VirtualMachineRestore
         api_version: snapshot.kubevirt.io/v1alpha1
         namespace: 'namespace-{{ user }}'
       register: vm_restore_info

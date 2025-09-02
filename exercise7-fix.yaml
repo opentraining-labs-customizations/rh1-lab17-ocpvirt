@@ -96,7 +96,7 @@
         state: present
         definition:
           spec:
-            runStrategy: Halted
+            running: false
       register: stopvm
       until: stopvm is succeeded
       retries: 60
@@ -115,11 +115,11 @@
 
     - name: Restore the snapshot
       kubernetes.core.k8s:
-        kind: VirtualMachineSnapshot
+        kind: VirtualMachineRestore
         namespace: 'namespace-{{ user }}'
         definition:
           apiVersion: snapshot.kubevirt.io/v1alpha1
-          kind: VirtualMachineSnapshot
+          kind: VirtualMachineRestore
           metadata:
             name: restore-exercise7-snapshot
           spec:

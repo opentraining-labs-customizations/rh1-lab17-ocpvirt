@@ -54,7 +54,7 @@
     #         name: "{{ vm_name }}"
     #         namespace: "{{ namespace }}"
     #       spec:
-    #         running: false
+    #         runStrategy: Halted
     #   register: stop_vm
 
     # - name: Wait for VirtualMachine to stop
